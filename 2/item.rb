@@ -16,20 +16,20 @@ class Item
 		else
 			puts 'Nothing to show'
 		end
-# 		[price, weight, name]
 	end
-# 	attr_reader :price, :height
-# 	attr_writer :price, :height
-def self.discount
-	if Time.now.month == 6
-		@discount += 0.3
-	else
-		@discount
+
+	def self.discount
+		if Time.now.month == 6
+			@discount += 0.3
+		else
+			@discount
+		end
 	end
-end
 
   def price
-    (@real_price - @real_price * self.class.discount) + tax
+		if @real_price.nil?
+    	(@real_price - @real_price * self.class.discount) + tax
+		end
   end
 
 	private
